@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Utelly API Test</title>
+  </head>
+  <body>
+    <button id="utelly">Utelly Test</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $("#utelly").on("click", function(result) {
+        return fetch(
+          "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=bojack&country=us",
+          {
+            method: "GET",
+            headers: {
+              "X-RapidAPI-Key":
+                "84d184dfd2msh6b5924af4ec8de5p14dfb2jsn75fb3b8d9b09"
+            }
+          }
+        ).then(response => console.log(response.json()));
+      });
+    </script>
+  </body>
+</html>
